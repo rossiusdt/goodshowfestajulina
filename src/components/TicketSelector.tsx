@@ -12,30 +12,17 @@ interface TicketOption {
 
 const ticketOptions: TicketOption[] = [
   {
-    id: 'pista-promo',
-    name: 'Pista Promocional',
-    price: 70.00,
-    label: 'R$ 70,00',
+    id: 'mesa',
+    name: 'MESA (4 A 6 PESSOAS)',
+    price: 497.79,
+    label: 'R$ 497,79',
+    note: 'Mesa para 4 a 6 pessoas. Open Bar incluso.',
   },
   {
-    id: 'pista-duplo',
-    name: 'Pista (2 Amigos)',
-    price: 120.00,
-    label: 'R$ 120,00',
-    note: 'O setor inclui 02 ingressos. Cada ingresso é válido para 01 pessoa.',
-  },
-  {
-    id: 'pista-premium-promo',
-    name: 'Pista Premium Promocional',
-    price: 100.00,
-    label: 'R$ 100,00',
-  },
-  {
-    id: 'pista-premium-duplo',
-    name: 'Pista Premium (2 Amigos)',
-    price: 170.00,
-    label: 'R$ 170,00',
-    note: 'O setor inclui 02 ingressos. Cada ingresso é válido para 01 pessoa.',
+    id: 'open-bar-individual',
+    name: 'OPEN BAR INDIVIDUAL',
+    price: 137.79,
+    label: 'R$ 137,79',
   },
 ];
 
@@ -99,7 +86,7 @@ export default function TicketSelector() {
                 <span className="w-10 text-center font-semibold text-gray-900">{quantities[ticket.id]}</span>
                 <button
                   onClick={() => updateQuantity(ticket.id, 1)}
-                  className="w-9 h-9 rounded-md bg-pink-500 hover:bg-pink-600 text-white flex items-center justify-center transition-colors"
+                  className="w-9 h-9 rounded-md bg-[#5c3d20] hover:bg-[#3b2a1a] text-[#f5e9d0] flex items-center justify-center transition-colors"
                 >
                   <Plus className="w-4 h-4" />
                 </button>

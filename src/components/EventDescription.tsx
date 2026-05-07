@@ -6,13 +6,16 @@ export default function EventDescription() {
 
         <div className="space-y-4 text-gray-700">
           <p>
-            Modas e Memórias convida Almir Sater e Sérgio Reis para uma noite inesquecível em São Carlos.
+            Uma noite inesquecível de música, tradição e emoção com o projeto Modas &amp; Memórias, reunindo dois grandes ícones da música sertaneja: Almir Sater e Sérgio Reis.
           </p>
           <p>
-            Uma celebração da música caipira e sertaneja raiz, reunindo dois dos maiores ícones do gênero: Almir Sater e Sérgio Reis. Uma noite de tradição, emoção e muito open bar no Oásis Eventos.
+            Prepare-se para reviver clássicos que marcaram gerações em um espetáculo repleto de histórias, modas e memórias inesquecíveis.
+          </p>
+          <p className="font-semibold text-[#5c3d20]">
+            Todos os ingressos são OPEN BAR, garantindo uma experiência completa do início ao fim.
           </p>
           <p>
-            Não perca a oportunidade de reviver clássicos imortais e criar novas memórias ao lado de lendas vivas da música brasileira.
+            As mesas acomodam de 4 a 6 pessoas, oferecendo mais conforto para você curtir esse grande encontro ao lado dos amigos e da família.
           </p>
         </div>
       </section>

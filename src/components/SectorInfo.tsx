@@ -1,4 +1,4 @@
-import { Zap, Star, Wine } from 'lucide-react';
+import { Coffee, Users } from 'lucide-react';
 
 export default function SectorInfo() {
   return (
@@ -6,67 +6,54 @@ export default function SectorInfo() {
       <h2 className="text-2xl font-bold text-gray-900 mb-6">Setores</h2>
 
       <div className="space-y-6">
-        {/* SETOR PISTÃO */}
-        <div className="border-2 border-blue-500 rounded-lg p-6 bg-gradient-to-br from-blue-50 to-cyan-50">
+        {/* MESA */}
+        <div className="border-2 border-[#5c3d20] rounded-lg p-6 bg-gradient-to-br from-[#fdf6ec] to-[#f5e9d0]">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 bg-blue-500 rounded-lg">
-              <Zap className="w-6 h-6 text-white" />
+            <div className="p-2 bg-[#5c3d20] rounded-lg">
+              <Users className="w-6 h-6 text-[#f5e9d0]" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900">SETOR PISTÃO</h3>
+            <h3 className="text-2xl font-bold text-gray-900">MESA (4 A 6 PESSOAS)</h3>
           </div>
 
-          <p className="text-lg font-semibold text-blue-700 mb-3">
-            O setor mais democrático e energético do evento — perfeito para quem quer curtir intensamente e ainda aproveitar uma vantagem imperdível.
+          <p className="text-lg font-semibold text-[#5c3d20] mb-3">
+            A melhor opção para curtir o evento com conforto ao lado dos amigos e da família.
           </p>
 
           <p className="text-gray-700 leading-relaxed mb-4">
-            Aqui a vibe é lá em cima, com acesso à pista para viver cada momento de perto, cantar, dançar e sentir toda a energia do show junto da galera.
+            Reserve sua mesa e garanta um espaço exclusivo para o grupo aproveitar a noite com mais comodidade, sem abrir mão de nenhum momento do espetáculo.
           </p>
 
-          <div className="bg-gradient-to-r from-orange-100 to-red-100 border-2 border-orange-400 rounded-lg p-5 mb-4">
-            <p className="text-xl font-bold text-orange-700 mb-2">🔥 INGRESSO DUPLO EXCLUSIVO:</p>
+          <div className="bg-gradient-to-r from-[#d4a855]/20 to-[#5c3d20]/10 border-2 border-[#d4a855] rounded-lg p-5">
+            <p className="text-xl font-bold text-[#5c3d20] mb-2">Open Bar incluso</p>
             <p className="text-gray-800 font-semibold leading-relaxed">
-              Comprou 1, levou 2! Isso mesmo — você garante sua entrada e ainda leva um acompanhante sem pagar nada a mais.
+              Toda a bebida incluída do início ao fim da noite — cerveja, drinks, refrigerante e mais.
             </p>
           </div>
-
-          <p className="text-gray-700 leading-relaxed">
-            Chame quem você quiser e venha viver essa experiência com o dobro de emoção pagando apenas um ingresso.
-          </p>
         </div>
 
-        {/* SETOR BACKSTAGE */}
-        <div className="border-2 border-purple-500 rounded-lg p-6 bg-gradient-to-br from-purple-50 to-pink-50">
+        {/* OPEN BAR INDIVIDUAL */}
+        <div className="border-2 border-[#d4a855] rounded-lg p-6 bg-gradient-to-br from-[#fdf6ec] to-[#fef9ed]">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 bg-purple-500 rounded-lg">
-              <Star className="w-6 h-6 text-white" />
+            <div className="p-2 bg-[#d4a855] rounded-lg">
+              <Coffee className="w-6 h-6 text-[#3b2a1a]" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900">SETOR BACKSTAGE</h3>
+            <h3 className="text-2xl font-bold text-gray-900">OPEN BAR INDIVIDUAL</h3>
           </div>
 
-          <p className="text-lg font-semibold text-purple-700 mb-3">
-            A experiência mais exclusiva e imersiva do evento, feita para quem quer estar onde tudo acontece.
+          <p className="text-lg font-semibold text-[#5c3d20] mb-3">
+            Ingresso individual com open bar completo para aproveitar a noite sem preocupações.
           </p>
 
           <p className="text-gray-700 leading-relaxed mb-4">
-            No Backstage, você fica atrás dos DJs, vivendo o evento de um ângulo único, colado nos artistas e sentindo de perto toda a energia da apresentação.
+            Venha sozinho ou com quem quiser e aproveite todo o open bar incluso no ingresso. Uma experiência completa com muito show ao vivo.
           </p>
 
-          <p className="text-gray-700 leading-relaxed mb-4">
-            Você ainda garante um Meet & Greet exclusivo, com acesso privilegiado para interagir e registrar momentos inesquecíveis.
-          </p>
-
-          <div className="bg-white/50 rounded-lg p-4 mb-4">
-            <p className="font-semibold text-gray-900 mb-3">🎁 Benefícios exclusivos:</p>
-            <ul className="text-gray-700 space-y-1 mb-4">
-              <li>• Camisa oficial do evento</li>
-              <li>• Copo exclusivo personalizado</li>
+          <div className="bg-white/60 rounded-lg p-4">
+            <p className="font-semibold text-gray-900 mb-2">Incluso no ingresso:</p>
+            <ul className="text-gray-700 space-y-1">
+              <li>• Open bar completo (alcoólico e não alcoólico)</li>
+              <li>• Acesso ao show de Almir Sater e Sérgio Reis</li>
             </ul>
-
-            <p className="font-semibold text-gray-900 mb-2">🍹 Open Bar completo:</p>
-            <p className="text-gray-700">
-              Uma seleção das mais variadas bebidas alcoólicas e não alcoólicas, para você curtir sem limites do início ao fim.
-            </p>
           </div>
         </div>
       </div>
