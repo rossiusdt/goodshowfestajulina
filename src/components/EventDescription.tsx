@@ -6,13 +6,13 @@ export default function EventDescription() {
 
         <div className="space-y-4 text-gray-700">
           <p>
-            Good Show confirma Filho do Piseiro e Milsinho Toque Dez na Festa Julina
+            Modas e Memórias convida Almir Sater e Sérgio Reis para uma noite inesquecível em São Carlos.
           </p>
           <p>
-            A Good Show acaba de confirmar as atrações da sua tão aguardada Festa Julina e a programação promete muito forró, energia e festa! Os fãs podem esperar shows imperdíveis de Filho do Piseiro e Milsinho Toque Dez, dois dos maiores nomes do forró e do piseiro nacional.
+            Uma celebração da música caipira e sertaneja raiz, reunindo dois dos maiores ícones do gênero: Almir Sater e Sérgio Reis. Uma noite de tradição, emoção e muito open bar no Oásis Eventos.
           </p>
           <p>
-            Com ritmo contagiante e sucessos que dominam as plataformas de streaming, os artistas prometem uma noite inesquecível para todos os públicos.
+            Não perca a oportunidade de reviver clássicos imortais e criar novas memórias ao lado de lendas vivas da música brasileira.
           </p>
         </div>
       </section>

@@ -7,10 +7,10 @@ export default function EventLocation() {
 
       <div className="space-y-4">
         <div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">Av. Alm. Delamare, 3.013</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mb-2">Oásis Eventos</h3>
           <div className="text-gray-600 space-y-1">
-            <p>Av. Alm. Delamare, 3.013</p>
-            <p>Cid. Heliopolis - São Paulo - SP</p>
+            <p>Oásis Eventos</p>
+            <p>São Carlos/SP</p>
           </div>
         </div>
 
