@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { X, Mail, Phone, User, CreditCard, Copy, CheckCircle, AlertCircle, Loader2, ArrowRight, RefreshCw } from 'lucide-react';
 import { createPix, getTransactionStatus, type PixItem, type PixCustomer } from '../lib/buckpay';
-import { track } from '../lib/analytics';
 
 type Step = 'form' | 'pix' | 'success' | 'error';
 
@@ -99,7 +98,6 @@ export default function CheckoutModal({ isOpen, onClose, selectedSummary, items,
         if (PAID_STATUSES.includes(status)) {
           stopPolling();
           setStep('success');
-          track('payment_success', { amount: totalAmount, summary: selectedSummary });
         } else if (FAILED_STATUSES.includes(status)) {
           stopPolling();
           setErrorMessage('Pagamento recusado ou expirado. Tente novamente.');
@@ -142,12 +140,9 @@ export default function CheckoutModal({ isOpen, onClose, selectedSummary, items,
       setQrcode(tx.qrcode);
       setStep('pix');
       startPolling(tx.id);
-      track('pix_generated', { amount: totalAmount, summary: selectedSummary });
     } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : 'Erro ao gerar o Pix. Tente novamente.';
-      setErrorMessage(msg);
+      setErrorMessage(err instanceof Error ? err.message : 'Erro ao gerar o Pix. Tente novamente.');
       setStep('error');
-      track('payment_error', { message: msg });
     } finally {
       setLoading(false);
     }
@@ -158,7 +153,6 @@ export default function CheckoutModal({ isOpen, onClose, selectedSummary, items,
       await navigator.clipboard.writeText(brcode);
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
-      track('pix_copied', { amount: totalAmount });
     } catch {
       // silent
     }
