@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { X, Mail, Phone, User, CreditCard, Copy, CheckCircle, AlertCircle, Loader2, ArrowRight, RefreshCw } from 'lucide-react';
 import { createPix, getTransactionStatus, type PixItem, type PixCustomer } from '../lib/buckpay';
+import { track } from '../lib/analytics';
 
 type Step = 'form' | 'pix' | 'success' | 'error';
 
@@ -97,6 +98,7 @@ export default function CheckoutModal({ isOpen, onClose, selectedSummary, items,
         setPollCount(c => c + 1);
         if (PAID_STATUSES.includes(status)) {
           stopPolling();
+          track('payment_success', { total: totalAmount, summary: selectedSummary });
           setStep('success');
         } else if (FAILED_STATUSES.includes(status)) {
           stopPolling();
@@ -139,9 +141,12 @@ export default function CheckoutModal({ isOpen, onClose, selectedSummary, items,
       setBrcode(tx.brcode);
       setQrcode(tx.qrcode);
       setStep('pix');
+      track('pix_generated', { total: totalAmount, summary: selectedSummary });
       startPolling(tx.id);
     } catch (err: unknown) {
-      setErrorMessage(err instanceof Error ? err.message : 'Erro ao gerar o Pix. Tente novamente.');
+      const msg = err instanceof Error ? err.message : 'Erro ao gerar o Pix. Tente novamente.';
+      setErrorMessage(msg);
+      track('payment_error', { error: msg, total: totalAmount });
       setStep('error');
     } finally {
       setLoading(false);
@@ -324,7 +329,7 @@ export default function CheckoutModal({ isOpen, onClose, selectedSummary, items,
                 <div className="bg-gray-50 border border-gray-200 rounded-xl p-3 flex items-start gap-2">
                   <p className="text-xs text-gray-600 flex-1 break-all font-mono leading-relaxed line-clamp-3">{brcode}</p>
                   <button
-                    onClick={handleCopy}
+                    onClick={() => { handleCopy(); track('pix_copied', { total: totalAmount }); }}
                     className={`shrink-0 flex items-center gap-1 px-3 py-2 rounded-lg text-xs font-semibold transition-all ${
                       copied ? 'bg-green-100 text-green-700' : 'bg-[#f5e9d0] text-[#5c3d20] hover:bg-[#e8d5b0]'
                     }`}

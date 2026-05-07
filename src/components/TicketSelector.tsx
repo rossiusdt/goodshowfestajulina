@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import CheckoutModal from './CheckoutModal';
+import { track } from '../lib/analytics';
 
 interface TicketOption {
   id: string;
@@ -33,10 +34,16 @@ export default function TicketSelector() {
   const [modalOpen, setModalOpen] = useState(false);
 
   const updateQuantity = (id: string, delta: number) => {
-    setQuantities(prev => ({
-      ...prev,
-      [id]: Math.max(0, prev[id] + delta),
-    }));
+    const ticket = ticketOptions.find(t => t.id === id);
+    setQuantities(prev => {
+      const next = Math.max(0, prev[id] + delta);
+      if (delta > 0 && next > prev[id]) {
+        track('ticket_add', { ticket_id: id, ticket_name: ticket?.name, price: ticket?.price });
+      } else if (delta < 0 && next < prev[id]) {
+        track('ticket_remove', { ticket_id: id, ticket_name: ticket?.name });
+      }
+      return { ...prev, [id]: next };
+    });
   };
 
   const totalTickets = Object.values(quantities).reduce((sum, qty) => sum + qty, 0);
@@ -96,7 +103,7 @@ export default function TicketSelector() {
         </div>
 
         <button
-          onClick={() => setModalOpen(true)}
+          onClick={() => { setModalOpen(true); track('checkout_open', { summary: selectedSummary, total: totalAmount }); }}
           disabled={totalTickets === 0}
           className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-bold py-3.5 rounded-lg transition-colors"
         >
